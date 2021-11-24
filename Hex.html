@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hexadecimal</title>
+<!--Bootstrap-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<style>
+
+	.btn{
+		background-color: skyblue; 
+		text-align: center;
+		transition: 0.35s;
+	}
+	.btn:hover{
+		background-color: white; 
+		box-shadow: 0 0 5px #161616;
+		 -webkit-box-reflect:below 0.5px linear-gradient(transparent, #0005);
+		transition: 0.35s;
+	}
+	.hdr {
+		text-align: center;
+		font-size: 64px;
+		font-family: "Calibri Light";
+		text-shadow: 1px 1px 15px rgba(0,0,0,1.00);
+			}
+	.imp {
+		padding-top: 1%;
+		text-align: center;
+
+	}
+	.expo {
+		text-align: center;
+		font-size: 128px;
+		text-shadow: 2px 2px 4px rgba(0,0,0,1.00);
+	}
+	.topnav {
+	  overflow: hidden;
+	  background-color: #333;
+	}
+
+	.topnav a {
+	  float: right;
+	  color: #f2f2f2;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  font-size: 17px;
+	}
+
+	.topnav a:hover {
+	  background-color: #ddd;
+	  color: black;
+	}
+
+	.topnav a.active {
+	  background-color: #04AA6D;
+	  color: white;
+	}
+</style>
+</head>
+
+	<body>
+		<!--__JS__-->
+	<script>
+			function button() {
+				if(document.myForm.name.value != "")
+				document.getElementById('txt').innerHTML = "&#X" + document.myForm.name.value;
+				else
+				document.getElementById('txt').innerHTML = null;
+			}	
+		</script>
+		<!--__HTML__-->
+		
+		<header>
+			<div class="topnav">
+				<a class="active">HEX</a>
+				<a href="Dec.html">DEC</a>
+			</div>
+		</header>
+		
+		<h1 class="hdr">Introdueix el teu caràcter hexadecimal</h1>
+		<p>&nbsp;</p>
+		<form name="myForm">
+			<p class="imp">&#X
+			<input type="text" maxlength="5" name="name" placeholder="ex:1F602">
+			</p>
+			<p class="imp">*Pots pressionar la tecla ENTER</p>
+		  <p class="imp">*El text no está limitat fins després de FFFFF</p>
+			<p class="imp">
+				<input onClick="button(); return false;" type="submit" value="Aplicar" class="btn">
+			&nbsp;</p>
+			<p id="txt" class="expo"></p>
+	</form>
+	<footer>
+		
+	</footer>
+</body>
+</html>
