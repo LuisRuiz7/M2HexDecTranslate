@@ -1,4 +1,7 @@
-@charset utf-8;
+footer{
+    -webkit-box-shadow: 0px 5px 10px rgba(255,0,4,1.00);
+    box-shadow: 0px 5px 10px rgba(255,0,4,1.00);
+}
 .btn{
 	background-color: skyblue; 
 	text-align: center;
@@ -17,7 +20,6 @@
 	text-shadow: 1px 1px 15px rgba(0,0,0,1.00);
 		}
 .imp {
-	padding-top: 1%;
 	text-align: center;
 
 }
@@ -42,10 +44,80 @@
 
 .topnav a:hover {
   background-color: #ddd;
-  color: black;
+  color: rgba(0,0,0,0.50);
 }
 
 .topnav a.active {
   background-color: #04AA6D;
   color: white;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.slide {
+	color: white;
+	text-align: center;
+    font-size: 4em;
+    cursor: pointer;
+}
+
+.slidetext {
+	color: white;
+	text-align: center;
+	font-size: 2em;
+}
+
+::-webkit-scrollbar {
+width: 10px;
+}
+
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+background: #04AA6D;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background:rgba(4,170,109,0.50);
 }

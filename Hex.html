@@ -1,47 +1,56 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8" meta name="viewport" content="width=device-width, initial-scale=1" lang="ca" xml:lang="ca">
 <title>Hexadecimal</title>
 <!--Bootstrap-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 <link rel="stylesheet" href="stylesheet.css">
 </head>
-
 	<body>
-		<!--__JS__-->
-	<script>
-			function button() {
-				if(document.myForm.name.value != "")
-				document.getElementById('txt').innerHTML = "&#X" + document.myForm.name.value;
-				else
-				document.getElementById('txt').innerHTML = null;
-			}	
-		</script>
 		<!--__HTML__-->
-		
+		<div id="mySidenav" class="sidenav">
+			<p id="txtbar" class="slidetext"></p>
+		</div>
+		<div id="main">
 		<header>
 			<div class="topnav">
+				<a class="slide" style="float: left;" onclick="openNav()">&#9776;</a>
 				<a class="active">HEX</a>
 				<a href="Dec.html">DEC</a>
 			</div>
 		</header>
-		
 		<h1 class="hdr">Introdueix el teu caràcter hexadecimal</h1>
 		<p>&nbsp;</p>
 		<form name="myForm">
 			<p class="imp">&#X
 			<input type="text" maxlength="5" name="name" placeholder="ex:1F602">
 			</p>
-			<p class="imp">*Pots pressionar la tecla ENTER</p>
-		  <p class="imp">*El text no está limitat fins després de FFFFF</p>
-			<p class="imp">
-				<input onClick="button(); return false;" type="submit" value="Aplicar" class="btn">
-			&nbsp;</p>
+				<p class="imp">*Pots pressionar la tecla ENTER</p>
+				<p class="imp">*En la llista no apareixen tots els símbols</p>
+				<p class="imp">*El text no está limitat fins després de FFFFF</p>
+				<p class="imp">&nbsp;</p>
+				<p class="imp">
+				<input onClick="hexa(); return false;" type="submit" value="Aplicar" class="btn">
+				&nbsp;
+			</p>
 			<p id="txt" class="expo"></p>
-	</form>
-	<footer>
-		
-	</footer>
+		</form>		
+	</div>
+	<script src="code.js"></script>
+	<script>
+		function padLeadingZeros(num, size) {
+		   var s = num + "";
+		   while (s.length < size) s = "0" + s;
+		   return s;
+		}
+		var text = ""; //Buit per evitar cadena al principi
+		var din = "";
+		for (let i = 33; i <= 65535; i++) { // 21 - FFFF
+			din = i.toString(16);
+			text += padLeadingZeros(din.toUpperCase(), 4) + "&nbsp-&nbsp;" + "&#X" + din + "<br>";
+		}
+		document.getElementById("txtbar").innerHTML = text;	
+	</script>
 </body>
 </html>
