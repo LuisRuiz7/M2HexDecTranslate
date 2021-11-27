@@ -1,3 +1,2 @@
 # M2HexDecTranslate
-
-Els arxius Dec, Hex (HTML) i la fulla d'estils (CSS) stylesheet han d'anar fora en una carpeta.
+No moguis els arxius en cap directori. Executa-ho obrint via .html o creant un servidor local (127.x.x.1).
