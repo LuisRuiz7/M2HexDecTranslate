@@ -10,12 +10,12 @@
 	<body>
 		<!--__HTML__-->
 		<div id="mySidenav" class="sidenav">
-			<p id="txtbar" class="slidetext"></p>
+			<p id="txtbar" class="slidetext">La barra està desactivada</p>
 		</div>
 		<div id="main">
 		<header>
 			<div class="topnav">
-				<a class="slide" style="float: left;" onclick="openNav()">&#9776;</a>
+				<a class="slide" style="float: left;" onclick="openNav()">&#9776</a>
 				<a class="active">DEC</a>
 				<a href="Hex.html">HEX</a>
 			</div>
@@ -39,16 +39,19 @@
 	</div>
 	<script src="code.js"></script>
 	<script>
-		function padLeadingZeros(num, size) {
-		   var s = num + "";
-		   while (s.length < size) s = "0" + s;
-		   return s;
+		var conf = confirm("Vols carregar la barra? L'explorador pot anar més lent");
+		if(conf == true) {
+			function padLeadingZeros(num, size) {
+			   var s = num + "";
+			   while (s.length < size) s = "0" + s;
+			   return s;
+			}
+			var text = ""; //Buit per evitar cadena al principi
+			for (let i = 33; i <= 9999; i++) { // 33 - 9999
+				text += padLeadingZeros(i, 4) + "&nbsp-&nbsp;" + "&#" + i + "<br>";
+			}
+			document.getElementById("txtbar").innerHTML = text;
 		}
-		var text = ""; //Buit per evitar cadena al principi
-		for (let i = 33; i <= 9999; i++) { // 33 - 9999
-			text += padLeadingZeros(i, 4) + "&nbsp-&nbsp;" + "&#" + i + "<br>";
-		}
-		document.getElementById("txtbar").innerHTML = text;	
 	</script>
 </body>
 </html>

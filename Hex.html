@@ -10,7 +10,7 @@
 	<body>
 		<!--__HTML__-->
 		<div id="mySidenav" class="sidenav">
-			<p id="txtbar" class="slidetext"></p>
+			<p id="txtbar" class="slidetext">La barra està desactivada</p>
 		</div>
 		<div id="main">
 		<header>
@@ -39,18 +39,21 @@
 	</div>
 	<script src="code.js"></script>
 	<script>
-		function padLeadingZeros(num, size) {
-		   var s = num + "";
-		   while (s.length < size) s = "0" + s;
-		   return s;
+		var conf = confirm("Vols carregar la barra? L'explorador pot anar més lent");
+		if(conf == true) {
+			   function padLeadingZeros(num, size) {
+			   var s = num + "";
+			   while (s.length < size) s = "0" + s;
+			   return s;
+			}
+			var text = ""; //Buit per evitar cadena al principi
+			var din = "";
+			for (let i = 33; i <= 65535; i++) { // 21 - FFFF
+				din = i.toString(16);
+				text += padLeadingZeros(din.toUpperCase(), 4) + "&nbsp-&nbsp;" + "&#X" + din + "<br>";
+			}
+			document.getElementById("txtbar").innerHTML = text;	
 		}
-		var text = ""; //Buit per evitar cadena al principi
-		var din = "";
-		for (let i = 33; i <= 65535; i++) { // 21 - FFFF
-			din = i.toString(16);
-			text += padLeadingZeros(din.toUpperCase(), 4) + "&nbsp-&nbsp;" + "&#X" + din + "<br>";
-		}
-		document.getElementById("txtbar").innerHTML = text;	
 	</script>
 </body>
 </html>
